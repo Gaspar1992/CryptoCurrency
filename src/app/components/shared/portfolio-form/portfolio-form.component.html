@@ -1,0 +1,14 @@
+<div *ngIf="change" class="alert alert-success" role="alert">
+  Portfolio {{(portfolio.id === undefined) ? 'Created' : 'Updated' }}!
+</div>
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{errorMSG.message}}
+</div>
+<form (submit)="createOrUpdatePortfolio()">
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input id="inputName" type="text" value="{{portfolio.name}}" class="form-control"  placeholder="Name">
+  </div>
+  <button type="submit" class="btn btn-primary">{{(portfolio.id === undefined) ? 'Create' : 'Update' }}</button>
+  <button *ngIf="!(portfolio.id === undefined)" (click)="deletePortfolio()" type="button" class="btn btn-danger">Delete</button>
+</form>

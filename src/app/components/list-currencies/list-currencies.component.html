@@ -1,0 +1,28 @@
+<app-loading *ngIf="loading"></app-loading>
+<h1>Create Currency</h1>
+<app-currency-form *ngIf="!loading" [currency]="currency"></app-currency-form>
+<div class="clearfix m-5"></div>
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{errorMSG.message}}
+</div>
+<table *ngIf="!loading" class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Acronym</th>
+    <th scope="col">Name</th>
+    <th scope="col">Options</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let currency of currencies">
+      <th scope="row">{{currency.id}}</th>
+      <td>{{currency.acronym}}</td>
+      <td>{{currency.name}}</td>
+      <td>
+        <button type="button" routerLink="/currency/{{currency.id}}" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-danger" (click)="deleteCurrency(currency.id)">Delete</button>
+      </td>
+  </tr>
+  </tbody>
+</table>

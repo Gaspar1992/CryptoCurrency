@@ -1,0 +1,19 @@
+<div *ngIf="change" class="alert alert-success" role="alert">
+  Currency {{(currency.id === undefined) ? 'Created' : 'Updated' }}!
+</div>
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{errorMSG.message}}
+</div>
+<form (submit)="createOrUpdateCurrency()">
+  <div class="form-group">
+    <label for="inputAcronym">Acronym</label>
+    <input id="inputAcronym" class="form-control" value="{{currency.acronym}}"  aria-describedby="acronymHelp" placeholder="Acronym">
+    <small id="acronymHelp" class="form-text text-muted">Acronym will be validated against a list of currencies</small>
+  </div>
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input id="inputName" type="text" value="{{currency.name}}" class="form-control"  placeholder="Name">
+  </div>
+  <button type="submit" class="btn btn-primary">{{(currency.id === undefined) ? 'Create' : 'Update' }}</button>
+  <button *ngIf="!(currency.id === undefined)" (click)="deleteCurrency()" type="button" class="btn btn-danger">Delete</button>
+</form>
