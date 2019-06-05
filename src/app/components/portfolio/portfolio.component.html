@@ -1,3 +1,4 @@
 <app-loading *ngIf="loading"></app-loading>
+<h1 *ngIf="!loading">Modify Portfolio</h1>
 <app-portfolio-form *ngIf="!loading" [portfolio]="portfolio"></app-portfolio-form>
-<app-list-portafolio-lines *ngIf="!loading" [idPortfolio]="portfolio.id"></app-list-portafolio-lines>
+<app-list-portafolio-lines *ngIf="!loading" [currencies]="currencies" [portfolio]="portfolio"></app-list-portafolio-lines>

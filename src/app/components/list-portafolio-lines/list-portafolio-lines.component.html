@@ -1,8 +1,18 @@
+<h1>{{(portfolioline.id === undefined) ? 'Create' : ' Modify' }} Portfolio-Line</h1>
+<app-portfolio-line-form [portfolio]="portfolio" [portfolioLine]="portfolioline" [currencies]="currencies"></app-portfolio-line-form>
+<div *ngIf="change" class="alert alert-success" role="alert">
+  Changes saved!
+</div>
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{errorMSG.message}}
+</div>
 <table *ngIf="!loading" class="table">
   <thead class="thead-dark">
   <tr>
     <th scope="col">#</th>
     <th scope="col">Amount</th>
+    <th scope="col">Currency</th>
+    <th scope="col">EUR</th>
     <th scope="col">Options</th>
   </tr>
   </thead>
@@ -10,10 +20,13 @@
   <tr *ngFor="let portfolioline of portfoliolines">
     <th scope="row">{{portfolioline.id}}</th>
     <td>{{portfolioline.amount}}</td>
+    <td>{{ (portfolioline.currency === undefined) ? 'loading...' : portfolioline.currency.acronym + " | " + portfolioline.currency.name}}</td>
+    <td>{{(conversion[portfolioline.id] === undefined) ? 'loading...' : conversion[portfolioline.id] }}</td>
     <td>
-      <button type="button" routerLink="/portfolioLine/{{portfolioline.id}}" class="btn btn-primary">Edit</button>
+      <button type="button" (click)="updateForm(portfolioline.id)" class="btn btn-primary">Select</button>
       <button type="button" class="btn btn-danger" (click)="deletePortfolioLine(portfolioline.id)">Delete</button>
     </td>
   </tr>
   </tbody>
 </table>
+

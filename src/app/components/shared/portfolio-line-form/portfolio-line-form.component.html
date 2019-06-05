@@ -1,0 +1,20 @@
+<div *ngIf="change" class="alert alert-success" role="alert">
+  Portfolio {{(portfolioLine.id === undefined) ? 'Created' : 'Updated' }}!
+</div>
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  {{errorMSG.message}}
+</div>
+<form (submit)="createOrUpdatePortfolioLine()">
+  <div class="form-group">
+    <label for="inputAmount">Amount</label>
+    <input id="inputAmount" min="1" type="text" value="{{portfolioLine.amount === undefined ? 1 : portfolioLine.amount }}" class="form-control"  placeholder="Amount">
+  </div>
+  <div class="form-group">
+    <label for="inputCurrency">Currency</label>
+    <select value="{{portfolioLine.currency === undefined ? 1 : portfolioLine.currency.id}}" class="form-control" id="inputCurrency">
+      <option *ngFor="let currency of currencies" value="{{currency.id}}" >{{currency.name}}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">{{(portfolioLine.id === undefined) ? 'Create' : 'Update' }}</button>
+  <button type="button" class="btn btn-info" (click)="reset()">Reset</button>
+</form>

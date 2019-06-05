@@ -23,6 +23,7 @@ export class PortfolioFormComponent implements OnInit {
 
   createOrUpdatePortfolio() {
     this.portfolio.name = this.nameDOM.value;
+
     this.service.createOrUpdatePortfolio(this.portfolio).pipe().subscribe(
       (data) => {
         this.change = true;

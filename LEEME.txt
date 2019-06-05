@@ -1,0 +1,5 @@
+*** INICIALIZAR ***
+npm install && ng serve
+*** DEPENDENCIAS ***
+nodejs >= 10.9
+angular-cli ~8.1+

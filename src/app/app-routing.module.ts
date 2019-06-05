@@ -5,7 +5,6 @@ import {ListCurrenciesComponent} from './components/list-currencies/list-currenc
 import {ListPortfolioComponent} from './components/list-portfolio/list-portfolio.component';
 import {CurrencyComponent} from './components/currency/currency.component';
 import {PortfolioComponent} from './components/portfolio/portfolio.component';
-import {PortfolioLineComponent} from './portfolio-line/portfolio-line.component';
 
 
 export const routes: Routes = [
@@ -14,7 +13,6 @@ export const routes: Routes = [
   { path: 'currency/:id', component: CurrencyComponent},
   { path: 'listPortfolio', component: ListPortfolioComponent },
   { path: 'portfolio/:id', component: PortfolioComponent },
-  { path: 'portfolioLine/:id', component: PortfolioLineComponent},
   {
     path: '',
     redirectTo: '/home',

@@ -18,8 +18,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { CurrencyFormComponent } from './components/shared/currency-form/currency-form.component';
 import { PortfolioFormComponent } from './components/shared/portfolio-form/portfolio-form.component';
 import { ListPortafolioLinesComponent } from './components/list-portafolio-lines/list-portafolio-lines.component';
-import { EuroCurrencyPipe } from './euro-currency.pipe';
-import { PortfolioLineComponent } from './portfolio-line/portfolio-line.component';
+import { PortfolioLineFormComponent } from './components/shared/portfolio-line-form/portfolio-line-form.component';
+import { CurrencyConversionPipe } from './pipes/currency-conversion.pipe';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,8 @@ import { PortfolioLineComponent } from './portfolio-line/portfolio-line.componen
     CurrencyFormComponent,
     PortfolioFormComponent,
     ListPortafolioLinesComponent,
-    EuroCurrencyPipe,
-    PortfolioLineComponent
+    PortfolioLineFormComponent,
+    CurrencyConversionPipe
   ],
   imports: [
     BrowserModule,

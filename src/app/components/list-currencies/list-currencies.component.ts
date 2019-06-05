@@ -13,10 +13,13 @@ export class ListCurrenciesComponent implements OnInit {
   currencies: Currency[];
   error: boolean;
   errorMSG: any;
+  loading: boolean;
   constructor(private service: CurrencyService) {
+    this.loading = true;
     this.currencies = this.service.getCurrencies();
     this.currency = new Currency();
     this.error = false;
+    this.loading = false;
   }
   deleteCurrency(id: number) {
     this.service.deleteCurrency(id).pipe().subscribe(
